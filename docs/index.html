@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - SecurePass Vault</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        nav {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            border-radius: 8px;
+        }
+        
+        nav a {
+            color: #2563eb;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 600;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        .content {
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        h1, h2, h3 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #1e293b;
+        }
+        
+        h1 {
+            font-size: 36px;
+            margin-top: 0;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 28px;
+            margin-top: 40px;
+        }
+        
+        h3 {
+            font-size: 22px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        code {
+            background: #f1f5f9;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: "Courier New", monospace;
+            color: #c7254e;
+        }
+        
+        .highlight {
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="../index.html">← Back to Home</a>
+            <a href="../frontend/index.html">Launch Vault</a>
+            <a href="https://github.com/Gaurav478-stack/Password_vault" target="_blank">GitHub</a>
+        </nav>
+        
+        <div class="content">
+            <h1>📚 SecurePass Vault Documentation</h1>
+            
+            <div class="highlight">
+                <strong>🔐 Security First:</strong> This is a zero-knowledge password manager. Your master password is never stored or transmitted. All encryption happens locally in your browser.
+            </div>
+            
+            <h2>📖 Quick Start</h2>
+            <ol>
+                <li><strong>Launch the Vault:</strong> Click "Launch Vault" to open the application</li>
+                <li><strong>Create Master Password:</strong> Choose a strong master password (you'll need this every time)</li>
+                <li><strong>Add Passwords:</strong> Store your passwords securely with AES-256-GCM encryption</li>
+                <li><strong>Never Forget:</strong> Your master password cannot be recovered if lost!</li>
+            </ol>
+            
+            <h2>🔧 Features</h2>
+            <ul>
+                <li><strong>AES-256-GCM Encryption:</strong> Military-grade authenticated encryption</li>
+                <li><strong>PBKDF2 Key Derivation:</strong> 150,000 iterations for strong key generation</li>
+                <li><strong>Password Generator:</strong> Create strong, random passwords (8-128 characters)</li>
+                <li><strong>Password Analysis:</strong> Strength scoring and breach detection</li>
+                <li><strong>Screenshot Protection:</strong> Prevents screen capture attempts</li>
+                <li><strong>Auto-lock:</strong> Locks vault after 5 minutes of inactivity</li>
+                <li><strong>Dark Mode UI:</strong> Eye-friendly interface</li>
+                <li><strong>Offline First:</strong> Works completely without internet</li>
+            </ul>
+            
+            <h2>🏗️ Architecture</h2>
+            <h3>Three-Tier Design</h3>
+            <ul>
+                <li><strong>Frontend (Client-Side):</strong> HTML5 + JavaScript + Web Crypto API
+                    <ul>
+                        <li>Zero-knowledge encryption in browser</li>
+                        <li>localStorage for encrypted vault storage</li>
+                        <li>No server communication required</li>
+                    </ul>
+                </li>
+                <li><strong>Java Microservice (Optional):</strong> RESTful API on port 8081
+                    <ul>
+                        <li>Password strength analysis</li>
+                        <li>Secure password generation</li>
+                        <li>Breach database scanning</li>
+                        <li>Security audit reports</li>
+                    </ul>
+                </li>
+                <li><strong>Node.js Backend (Optional):</strong> Express proxy on port 5000
+                    <ul>
+                        <li>Forwards requests to Java microservice</li>
+                        <li>MongoDB integration for multi-device sync</li>
+                        <li>JWT authentication</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h2>💻 Tech Stack</h2>
+            <ul>
+                <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript ES6+</li>
+                <li><strong>Cryptography:</strong> Web Crypto API (AES-256-GCM, PBKDF2-SHA256)</li>
+                <li><strong>Backend:</strong> Node.js, Express.js</li>
+                <li><strong>Microservice:</strong> Java 8+ (Built-in HttpServer)</li>
+                <li><strong>Database (Optional):</strong> MongoDB</li>
+                <li><strong>Version Control:</strong> Git</li>
+            </ul>
+            
+            <h2>🎓 OOP Concepts Demonstrated</h2>
+            <ol>
+                <li><strong>Encapsulation:</strong> Password class with private fields</li>
+                <li><strong>Abstraction:</strong> PasswordAnalyzer interface with multiple implementations</li>
+                <li><strong>Inheritance:</strong> AdvancedPasswordAnalyzer extends BasicPasswordAnalyzer</li>
+                <li><strong>Polymorphism:</strong> Multiple analyzer types with common interface</li>
+                <li><strong>Composition:</strong> VaultManager contains analyzer and audit service</li>
+            </ol>
+            
+            <h2>🔒 Security Features</h2>
+            <ul>
+                <li>Master password never stored (zero-knowledge)</li>
+                <li>CryptoKey non-extractable flag enabled</li>
+                <li>Memory cleared after key derivation</li>
+                <li>Auto-lock on inactivity</li>
+                <li>Screenshot attempt detection</li>
+                <li>beforeunload handler clears sensitive data</li>
+            </ul>
+            
+            <h2>⚙️ Running Locally</h2>
+            
+            <h3>Client-Only Mode (No Backend)</h3>
+            <ol>
+                <li>Open <code>frontend/index.html</code> directly in browser</li>
+                <li>Works 100% offline</li>
+                <li>All features available except server-backed sync</li>
+            </ol>
+            
+            <h3>With Java Microservice</h3>
+            <ol>
+                <li>Navigate to <code>java-backend</code> folder</li>
+                <li>Run: <code>run.bat</code> (Windows) or <code>javac -d bin src/main/java/com/securepass/**/*.java && java -cp bin com.securepass.SecurePassApplication</code></li>
+                <li>Service runs on: <code>http://localhost:8081</code></li>
+            </ol>
+            
+            <h3>With Node.js Backend</h3>
+            <ol>
+                <li>Create <code>backend/.env</code> with MongoDB URI and secrets</li>
+                <li>Run: <code>cd backend && npm install && npm start</code></li>
+                <li>Service runs on: <code>http://localhost:5000</code></li>
+            </ol>
+            
+            <h2>📄 License</h2>
+            <p>This project is open source and available for educational purposes. Check the repository for license details.</p>
+            
+            <h2>👨‍💻 Author</h2>
+            <p>Created by <strong>Gaurav</strong> (<a href="https://github.com/Gaurav478-stack" target="_blank">@Gaurav478-stack</a>)</p>
+            
+            <div class="highlight">
+                <strong>⚠️ Important Notice:</strong> This is an educational project demonstrating OOP concepts and security principles. For production use, consider additional security audits and penetration testing.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
