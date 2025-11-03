@@ -4,8 +4,8 @@ services:
     env: node
     region: oregon # or another region close to you
     plan: free
-    buildCommand: cd backend && npm install
-    startCommand: cd backend && npm start
+    buildCommand: npm install
+    startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
@@ -17,4 +17,4 @@ services:
         sync: false
       - key: SECRET_KEY
         sync: false
-    healthCheckPath: /
+    healthCheckPath: /health

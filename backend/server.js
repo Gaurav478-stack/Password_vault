@@ -15,6 +15,10 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+// Serve static frontend files from 'frontend' directory
+const path = require('path');
+app.use(express.static(path.join(__dirname, '../frontend')));
+
 // Validate environment variables
 if (!process.env.MONGO_URI) {
     console.error("❌ MONGO_URI is not defined in .env");
@@ -313,7 +317,18 @@ app.delete("/api/passwords/:id", authMiddleware, async (req, res) => {
 });
 
 // ✅ Health check endpoint (for Render and monitoring)
-app.get("/", (req, res) => {
+app.get("/health", (req, res) => {
+    res.status(200).json({ 
+        status: "healthy",
+        message: "SecurePass Vault API is running",
+        version: "1.0.0",
+        database: mongoose.connection.readyState === 1 ? "connected" : "disconnected",
+        uptime: process.uptime(),
+        timestamp: new Date().toISOString()
+    });
+});
+
+app.get("/api/status", (req, res) => {
     res.status(200).json({ 
         status: "healthy",
         message: "SecurePass Vault API is running",
@@ -322,12 +337,9 @@ app.get("/", (req, res) => {
     });
 });
 
-app.get("/health", (req, res) => {
-    res.status(200).json({ 
-        status: "healthy",
-        database: mongoose.connection.readyState === 1 ? "connected" : "disconnected",
-        uptime: process.uptime()
-    });
+// Serve frontend for root route
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
 // Start server

@@ -2,8 +2,10 @@
 // Minimal client-side code to talk to backend auth & password API.
 // Assumes index.html contains the elements with the same IDs as earlier.
 
-// Use Render backend API (deployed)
-const API_BASE = 'https://password-vault-2ow2.onrender.com';
+// Auto-detect: if on Render domain, use relative paths; otherwise use full Render URL
+const API_BASE = window.location.hostname.includes('onrender.com') 
+  ? '' // Relative path when on Render
+  : 'https://password-vault-2ow2.onrender.com'; // Full URL when on GitHub Pages
 
 // DOM selectors (must match ids in index.html)
 const authModal = document.getElementById('authModal');
