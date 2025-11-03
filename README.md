@@ -11,7 +11,7 @@ A secure password management system with encrypted storage, featuring both clien
 - **🚀 Live Demo**: https://gaurav478-stack.github.io/Password_vault/
 - **📱 Vault App**: https://gaurav478-stack.github.io/Password_vault/frontend/
 - **📚 Documentation**: https://gaurav478-stack.github.io/Password_vault/docs/
-- **🔧 API Backend**: Deploy to [Render](RENDER_DEPLOYMENT.md) (free)
+- **🔧 API Backend**: https://password-vault-2ow2.onrender.com ✅ (Live on Render)
 
 ## Features
 

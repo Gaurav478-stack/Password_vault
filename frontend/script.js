@@ -2,7 +2,8 @@
 // Minimal client-side code to talk to backend auth & password API.
 // Assumes index.html contains the elements with the same IDs as earlier.
 
-const API_BASE = ''; // server serves static files and API at same origin
+// Use Render backend API (deployed)
+const API_BASE = 'https://password-vault-2ow2.onrender.com';
 
 // DOM selectors (must match ids in index.html)
 const authModal = document.getElementById('authModal');
