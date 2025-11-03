@@ -312,9 +312,31 @@ app.delete("/api/passwords/:id", authMiddleware, async (req, res) => {
     }
 });
 
+// ✅ Health check endpoint (for Render and monitoring)
+app.get("/", (req, res) => {
+    res.status(200).json({ 
+        status: "healthy",
+        message: "SecurePass Vault API is running",
+        version: "1.0.0",
+        timestamp: new Date().toISOString()
+    });
+});
+
+app.get("/health", (req, res) => {
+    res.status(200).json({ 
+        status: "healthy",
+        database: mongoose.connection.readyState === 1 ? "connected" : "disconnected",
+        uptime: process.uptime()
+    });
+});
+
 // Start server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+    console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
+    console.log(`📡 MongoDB: ${mongoose.connection.readyState === 1 ? 'Connected' : 'Connecting...'}`);
+});
 
 // --- Java microservice proxy endpoints (forward to Java API on port 8081) ---
 const http = require('http');

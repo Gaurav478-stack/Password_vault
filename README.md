@@ -1,6 +1,17 @@
-# SecurePass Vault
+# 🔐 SecurePass Vault
+
+[![Live Demo](https://img.shields.io/badge/Demo-Live-success?style=for-the-badge&logo=github)](https://gaurav478-stack.github.io/Password_vault/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?style=for-the-badge&logo=github)](https://github.com/Gaurav478-stack/Password_vault)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
 A secure password management system with encrypted storage, featuring both client-side and server-backed vault options, plus an advanced Java backend service demonstrating OOP concepts.
+
+## 🌐 Live Links
+
+- **🚀 Live Demo**: https://gaurav478-stack.github.io/Password_vault/
+- **📱 Vault App**: https://gaurav478-stack.github.io/Password_vault/frontend/
+- **📚 Documentation**: https://gaurav478-stack.github.io/Password_vault/docs/
+- **🔧 API Backend**: Deploy to [Render](RENDER_DEPLOYMENT.md) (free)
 
 ## Features
 
@@ -395,6 +406,58 @@ npx http-server -p 8080
 **Decryption errors**: If you see [DECRYPTION_ERROR], the SECRET_KEY may have changed or data is corrupted
 
 **Port already in use**: Change PORT in .env or kill process using port 5000
+
+## 🚀 Deployment
+
+### Frontend (GitHub Pages)
+Already deployed at: https://gaurav478-stack.github.io/Password_vault/
+
+The client-side vault works 100% offline - no backend needed!
+
+### Backend (Render - Free Tier)
+
+Deploy your Node.js API to Render for multi-device sync:
+
+1. **Quick Setup**:
+   ```bash
+   # Generate secrets for Render
+   node generate-secrets.js
+   
+   # Push to GitHub (if not already done)
+   git push origin master
+   ```
+
+2. **Deploy to Render**:
+   - Go to https://render.com and sign up (free)
+   - Click "New +" → "Web Service"
+   - Connect your GitHub repo
+   - Render will auto-detect `render.yaml`
+   - Add environment variables (see generated secrets)
+   - Deploy! ✅
+
+3. **Full Instructions**: See [RENDER_DEPLOYMENT.md](RENDER_DEPLOYMENT.md)
+
+### Java Microservice (Local Only)
+
+The Java backend runs locally and provides:
+- Password strength analysis
+- Secure password generation
+- Breach detection scanning
+- Security audit reports
+
+Currently designed for local development. For production Java deployment, consider:
+- Docker containerization
+- AWS Elastic Beanstalk
+- Google Cloud Run
+- Heroku (with Java buildpack)
+
+## 📚 Documentation
+
+- **[Complete Project Documentation](PROJECT_DOCUMENTATION.md)** - Overview, architecture, OOP concepts
+- **[Render Deployment Guide](RENDER_DEPLOYMENT.md)** - Step-by-step API deployment
+- **[API Reference](API_REFERENCE.md)** - Endpoint documentation
+- **[Security Guide](SECURITY.md)** - Security features and best practices
+- **[Online Docs](https://gaurav478-stack.github.io/Password_vault/docs/)** - Web-based documentation
 
 ## License
 
